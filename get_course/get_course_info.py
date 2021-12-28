@@ -1,12 +1,17 @@
 # coding: utf-8
+import os
 import ssl
 import json
 
 import urllib.request
+from pathlib import Path
+
 
 if __name__ == "__main__":
+    path = Path(os.getcwd())
+
     # Read GCP key (be private!)
-    with open("./google_key.json", "r") as client_json:
+    with open(f"{str(path.parent.absolute())}/google_key.json", "r") as client_json:
         client = json.load(client_json)
 
     # Make inputs
@@ -25,11 +30,12 @@ if __name__ == "__main__":
           f"&language=ko&key={key}"
 
     # Download course result as json file
+    # - the name of json file should be modified later
     request = urllib.request.Request(url)
     context = ssl._create_unverified_context()
     response = urllib.request.urlopen(request, context=context)
     response_text = response.read().decode('utf-8')
     response_json = json.loads(response_text)
 
-    with open("./Agent_Transit_Directions.json", "w") as rltStream:
+    with open("./course_data/Agent_Transit_Directions.json", "w") as rltStream:
         json.dump(response_json, rltStream)
