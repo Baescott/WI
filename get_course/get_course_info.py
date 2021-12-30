@@ -7,7 +7,7 @@ import datetime
 import urllib.request
 from pathlib import Path
 
-from get_coordinates import get_coord_lat_lng
+from get_course.get_coordinates import get_coord_lat_lng
 
 
 def get_course_json(depart, arrive):
@@ -48,7 +48,7 @@ def get_course_json(depart, arrive):
     response_json = json.loads(response_text)
 
     # now = str(datetime.datetime.now()).split('.')[0]
-    with open(f"./course_data/from_{depart}_to_{arrive}.json", "w") as rltStream:
+    with open(f"./get_course/course_data/from_{depart}_to_{arrive}.json", "w") as rltStream:
         json.dump(response_json, rltStream)
 
 def get_course_info(depart, arrive):
@@ -60,7 +60,7 @@ def get_course_info(depart, arrive):
     '''
     get_course_json(depart, arrive)
 
-    with open(f"./course_data/from_{depart}_to_{arrive}.json", "r") as transit_json:
+    with open(f"./get_course/course_data/from_{depart}_to_{arrive}.json", "r") as transit_json:
         whole_dict = dict(json.load(transit_json))
 
     # Get necessary values from result json file
