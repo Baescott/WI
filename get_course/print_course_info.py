@@ -15,8 +15,8 @@ if __name__ == "__main__":
     # - This will be replaced to ETL procedure soon
     print("상암미르웰한올림","부터","파라다이스텔SB","까지의 경로")
     print(duration_sec, "초가 걸립니다.")
-    print(start_geo)
-    print(end_geo)
+    print(start_geo)  # 출발지의 위도, 경도
+    print(end_geo)  # 도착지의 위도, 경도
     step_list = path["steps"]
 
     print("경로는 총", len(step_list), "번의 과정이 있으며,")
@@ -24,7 +24,6 @@ if __name__ == "__main__":
     print("-------------------------")
     
     step = 0
-
-while step < len(step_list):
-    print(step_list[step])
-    step = step + 1
+    while step < len(step_list):
+        print(step_list[step])
+        step = step + 1
