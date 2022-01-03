@@ -3,10 +3,10 @@ import sys
 # import numpy as np
 # import pandas as pd
 
+from get_course.print_course_info import print_course
 from get_course.get_course_info import get_course_info
 from get_course.get_coordinates import get_coord_lat_lng
-from get_course.print_course_info import print_course
-from get_weather.get_weather_SrtNcst import get_weather_SrtNcst
+from get_weather_kmo.get_weather_srt_ncst import get_weather_srt_ncst
 
 argv_list = sys.argv[1:]
 depart = argv_list[0]
@@ -26,8 +26,8 @@ depart_lat_lng, depart_address, arrive_lat_lng, arrive_address, course_lst = get
 print_course(depart, arrive)
 
 # Weather info
-depart_weather_info = get_weather_SrtNcst(depart_lng,depart_lat)
-arrive_weather_info = get_weather_SrtNcst(arrive_lng,arrive_lat)
+depart_weather_info = get_weather_srt_ncst(depart_lng,depart_lat)
+arrive_weather_info = get_weather_srt_ncst(arrive_lng,arrive_lat)
 # - This will be replaced to ETL procedure soon
 print(depart_weather_info)
 print(arrive_weather_info)

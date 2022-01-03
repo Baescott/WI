@@ -1,9 +1,11 @@
-import json
 import ssl
+import json
 import urllib.request
-from datetime import datetime, timedelta
 
-from get_weather.lambert import lambert_projection
+from datetime import datetime
+from datetime import timedelta
+
+from lambert import lambert_projection
 
 key = 'm%2B7xkBjgRbBpjVrmx332C%2B%2FpYDPxIlzFvA2Y6%2F%2F6ay%2BSlNvJ91WCzlP6pvDiZIMqDcFtj9GwgbDitr%2FrOf1P5A%3D%3D'
 base_date = datetime.today().strftime('%Y%m%d')  # 날짜
@@ -27,7 +29,7 @@ map_info['yo'] = 675 / map_info['grid']  # 기준점 Y좌표
 map_info['first'] = 0  # 시작여부 (0 = 시작)
 
 
-def get_weather_SrtNcst(lng, lat):
+def get_weather_srt_fcst(lng, lat):
     lng1 = float(lng)
     lat1 = float(lat)
 
@@ -35,7 +37,7 @@ def get_weather_SrtNcst(lng, lat):
     X = int(X + 1.5)
     Y = int(Y + 1.5)
 
-    url = f"http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst" + \
+    url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst" + \
           f"?serviceKey={key}&numOfRows=100&pageNo=1&dataType=JSON" + \
           f"&base_date={base_date}&base_time={base_time}&nx={X}&ny={Y}"
 
@@ -46,14 +48,16 @@ def get_weather_SrtNcst(lng, lat):
     response_json = json.loads(response_text)
 
     '''
-    T1H 기온
-    RN1 1시간 강수량
-    UUU 동서바람성분
-    VVV 남북바람성분
-    REH 습도
-    PTY 강수형태
-    VEC 풍향
-    WSD 풍속
+    T1H	기온
+    RN1	1시간 강수량
+    SKY	하늘상태
+    UUU	동서바람성분
+    VVV	남북바람성분
+    REH	습도
+    PTY	강수형태
+    LGT	낙뢰
+    VEC	풍향
+    WSD	풍속
     '''
 
     return response_json
