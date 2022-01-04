@@ -6,7 +6,7 @@ import json
 import urllib.request
 from pathlib import Path
 
-from WI.get_course.get_coordinates import get_coord_lat_lng
+from get_course.get_coordinates import get_coord_lat_lng
 
 
 def get_course_json(depart, arrive):

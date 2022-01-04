@@ -5,7 +5,7 @@ import urllib.request
 from datetime import datetime
 from datetime import timedelta
 
-from lambert import lambert_projection
+from get_kmo.lambert import lambert_projection
 
 key = 'm%2B7xkBjgRbBpjVrmx332C%2B%2FpYDPxIlzFvA2Y6%2F%2F6ay%2BSlNvJ91WCzlP6pvDiZIMqDcFtj9GwgbDitr%2FrOf1P5A%3D%3D'
 base_date = datetime.today().strftime('%Y%m%d')  # 날짜

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from weatherapi.weatherapi_client import WeatherapiClient
-from WI.get_course.get_coordinates import get_coord_lat_lng
+from get_course.get_coordinates import get_coord_lat_lng
 
 
 def get_weather_history(place, dt):

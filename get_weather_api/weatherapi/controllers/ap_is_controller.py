@@ -26,7 +26,8 @@ class APIsController(BaseController):
 
     def get_realtime_weather(self,
                              q,
-                             lang=None):
+                             lang=None,
+                             aqi=None ):
         """Does a GET request to /current.json.
 
         Current weather or realtime weather API method allows a user to get up
@@ -62,7 +63,8 @@ class APIsController(BaseController):
         _query_builder += _url_path
         _query_parameters = {
             'q': q,
-            'lang': lang
+            'lang': lang,
+            'aqi': aqi
         }
         _query_builder = APIHelper.append_url_with_query_parameters(_query_builder,
             _query_parameters, Configuration.array_serialization)
@@ -75,6 +77,7 @@ class APIsController(BaseController):
 
         # Prepare and execute request
         _request = self.http_client.get(_query_url, headers=_headers)
+        # print(_request.__dict__)
         CustomQueryAuth.apply(_request)
         _context = self.execute_request(_request)
 
