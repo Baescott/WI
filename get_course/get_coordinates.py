@@ -7,12 +7,12 @@ from pathlib import Path
 
 
 def get_coord(place, is_save=False):
-    '''
+    """
 
     :param place:
     :param is_save:
     :return:
-    '''
+    """
     path = Path(os.getcwd())
 
     # Read GCP key (be private!)
@@ -34,26 +34,24 @@ def get_coord(place, is_save=False):
     return geocode_result
 
 
-def get_coord_address(place, is_save=False):
-    '''
+def get_coord_address(place):
+    """
 
     :param place:
-    :param is_save:
     :return: sting
-    '''
+    """
     geocode_result = get_coord(place)
     geocode_keys = list(geocode_result.keys())
 
     return geocode_result[geocode_keys[1]]
 
 
-def get_coord_lat_lng(place, is_save=False):
-    '''
+def get_coord_lat_lng(place):
+    """
 
     :param place:
-    :param is_save:
     :return: list
-    '''
+    """
     geocode_result = get_coord(place)
     geocode_keys = list(geocode_result.keys())
 

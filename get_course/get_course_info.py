@@ -2,21 +2,20 @@
 import os
 import ssl
 import json
-import datetime
 
 import urllib.request
 from pathlib import Path
 
-from get_course.get_coordinates import get_coord_lat_lng
+from WI.get_course.get_coordinates import get_coord_lat_lng
 
 
 def get_course_json(depart, arrive):
-    '''
+    """
 
     :param depart:
     :param arrive:
     :return response_json: ends with .json
-    '''
+    """
     path = Path(os.getcwd())
 
     # Read GCP key (be private!)
@@ -51,13 +50,14 @@ def get_course_json(depart, arrive):
     with open(f"./get_course/course_data/from_{depart}_to_{arrive}.json", "w") as rltStream:
         json.dump(response_json, rltStream)
 
+
 def get_course_info(depart, arrive):
-    '''
+    """
 
     :param depart:
     :param arrive:
     :return:
-    '''
+    """
     get_course_json(depart, arrive)
 
     with open(f"./get_course/course_data/from_{depart}_to_{arrive}.json", "r") as transit_json:

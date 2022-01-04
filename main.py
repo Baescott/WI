@@ -6,7 +6,7 @@ import sys
 from get_course.print_course_info import print_course
 from get_course.get_course_info import get_course_info
 from get_course.get_coordinates import get_coord_lat_lng
-from get_weather_kmo.get_weather_srt_ncst import get_weather_srt_ncst
+from get_kmo.get_weather_srt_ncst import get_weather_srt_ncst
 
 argv_list = sys.argv[1:]
 depart = argv_list[0]
