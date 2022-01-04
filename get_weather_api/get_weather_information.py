@@ -30,6 +30,7 @@ def get_weather_information(place,days_before,days_after):
     print(weather_real.current.cloud)
     print(weather_real.current.feelslike_c)
 
+    #should have check aqi
     print(weather_forecast.current.wind_mph)
  
 
