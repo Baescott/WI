@@ -2,7 +2,6 @@ import os
 import json
 import datetime
 
-from pathlib import Path
 from get_weather_real_time import get_weather_real_time
 from get_weather_forecast import get_weather_forecast
 from get_weather_history import get_weather_history
