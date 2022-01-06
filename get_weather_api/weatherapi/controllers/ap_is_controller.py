@@ -77,7 +77,7 @@ class APIsController(BaseController):
 
         # Prepare and execute request
         _request = self.http_client.get(_query_url, headers=_headers)
-        print(_request.__dict__)
+        # print(_request.__dict__)
         CustomQueryAuth.apply(_request)
         _context = self.execute_request(_request)
 
@@ -99,7 +99,8 @@ class APIsController(BaseController):
                              dt=None,
                              unixdt=None,
                              hour=None,
-                             lang=None):
+                             lang=None,
+                             aqi=None):
         """Does a GET request to /forecast.json.
 
         Forecast weather API method returns upto next 10 day weather forecast
@@ -148,7 +149,8 @@ class APIsController(BaseController):
             'dt': dt,
             'unixdt': unixdt,
             'hour': hour,
-            'lang': lang
+            'lang': lang,
+            'aqi': aqi
         }
         _query_builder = APIHelper.append_url_with_query_parameters(_query_builder,
             _query_parameters, Configuration.array_serialization)
@@ -183,7 +185,8 @@ class APIsController(BaseController):
                             end_dt=None,
                             unixend_dt=None,
                             hour=None,
-                            lang=None):
+                            lang=None,
+                            aqi=None):
         """Does a GET request to /history.json.
 
         History weather API method returns historical weather for a date on or
@@ -238,7 +241,8 @@ class APIsController(BaseController):
             'end_dt': end_dt,
             'unixend_dt': unixend_dt,
             'hour': hour,
-            'lang': lang
+            'lang': lang,
+            'aqi': aqi
         }
         _query_builder = APIHelper.append_url_with_query_parameters(_query_builder,
             _query_parameters, Configuration.array_serialization)

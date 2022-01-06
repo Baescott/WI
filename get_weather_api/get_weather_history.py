@@ -27,6 +27,7 @@ def get_weather_history(place, dt):
 
     q = ','.join(get_coord_lat_lng(place))
     lang = 'ko'
+    aqi = 'yes'
 
-    result = ap_is_controller.get_history_weather(q, dt, lang)
+    result = ap_is_controller.get_history_weather(q, dt, lang, aqi)
     return result

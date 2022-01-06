@@ -27,6 +27,7 @@ def get_weather_forecast(place, days):
 
     q = ','.join(get_coord_lat_lng(place))
     lang = 'ko'
+    aqi = 'yes'
 
-    result = ap_is_controller.get_forecast_weather(q, days, lang)
+    result = ap_is_controller.get_forecast_weather(q, days, lang, aqi)
     return result
