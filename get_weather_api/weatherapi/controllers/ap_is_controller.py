@@ -77,7 +77,7 @@ class APIsController(BaseController):
 
         # Prepare and execute request
         _request = self.http_client.get(_query_url, headers=_headers)
-        # print(_request.__dict__)
+        #print(_request.__dict__)
         CustomQueryAuth.apply(_request)
         _context = self.execute_request(_request)
 
