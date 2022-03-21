@@ -1,8 +1,8 @@
 import os
 import json
 import pickle
-
 import googlemaps
+
 from pathlib import Path
 
 
@@ -25,7 +25,7 @@ def get_coord(place, is_save=False):
     # Return location result
     # - we could save this as pkl file
     gmaps = googlemaps.Client(key=key)
-    geocode_result = gmaps.geocode(place, language='ko')[0]
+    geocode_result = gmaps.geocode(place, language='ko') [0]
 
     if is_save:
         with open(f'./coords_data/coords_{place}.pkl', 'wb') as f:

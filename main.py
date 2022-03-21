@@ -3,7 +3,7 @@ import json
 
 sys.path.append("/Users/ymgmac/Documents/WI/WI/get_course")
 sys.path.append("/Users/ymgmac/Documents/WI/WI/get_weather_api")
-sys.path.append("/Users/ymgmac/Documents/WI/WIget_kmo")
+sys.path.append("/Users/ymgmac/Documents/WI/WI/get_kmo")
 
 # import numpy as np
 # import pandas as pd

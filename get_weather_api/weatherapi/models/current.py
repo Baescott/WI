@@ -7,6 +7,7 @@
 """
 
 import weatherapi.models.condition
+import weatherapi.models.air_quality
 
 class Current(object):
 
@@ -41,6 +42,7 @@ class Current(object):
         uv (float): UV Index
         gust_mph (float): Wind gust in miles per hour
         gust_kph (float): Wind gust in kilometer per hour
+        air_quality : TODO: type description here.
 
     """
 
@@ -68,7 +70,8 @@ class Current(object):
         "vis_miles":'vis_miles',
         "uv":'uv',
         "gust_mph":'gust_mph',
-        "gust_kph":'gust_kph'
+        "gust_kph":'gust_kph',
+        "air_quality":'air_quality'
     }
 
     def __init__(self,
@@ -94,7 +97,8 @@ class Current(object):
                  vis_miles=None,
                  uv=None,
                  gust_mph=None,
-                 gust_kph=None):
+                 gust_kph=None,
+                 air_quality=None):
         """Constructor for the Current class"""
 
         # Initialize members of the class
@@ -121,6 +125,7 @@ class Current(object):
         self.uv = uv
         self.gust_mph = gust_mph
         self.gust_kph = gust_kph
+        self.air_quality = air_quality
 
 
     @classmethod
@@ -164,6 +169,7 @@ class Current(object):
         uv = dictionary.get('uv')
         gust_mph = dictionary.get('gust_mph')
         gust_kph = dictionary.get('gust_kph')
+        air_quality = weatherapi.models.air_quality.Air_quality.from_dictionary(dictionary.get('air_quality')) if dictionary.get('air_quality') else None
 
         # Return an object of this model
         return cls(last_updated_epoch,
@@ -188,6 +194,8 @@ class Current(object):
                    vis_miles,
                    uv,
                    gust_mph,
-                   gust_kph)
+                   gust_kph,
+                   air_quality
+                   )
 
 
